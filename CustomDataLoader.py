@@ -36,9 +36,9 @@ class CarDataLoader(Dataset):
                 new_shape = list(img.shape)
                 new_shape[-2] -= 1
                 img = TF.resize(img, size=new_shape[-2:])
-            mask, original = img.split(int(img.shape[-1] / 2), len(img.shape) - 2)
-            mask.to(self.device)
-            original.to(self.device)
+            mask, original = img.split(int(img.shape[-2] / 2), len(img.shape) - 2)
+        mask.to(self.device)
+        original.to(self.device)
         return original, mask
 
     # The __len__ function returns the number of samples in our dataset.
