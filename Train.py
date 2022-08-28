@@ -48,7 +48,7 @@ class train:
                 loss = self.criterion(mask, rec_img)
                 loss.backward()
                 self.optimizer.step()
-                if i % 10 == 1:
+                if i % 100 == 1:
                     self.train_cost.append(loss)
                     print("epoch = ", epoch, "itr = ", i)
                     for org_val, mask_val in self.val_data:
